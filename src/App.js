@@ -1,40 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-import Album from "./components/Album"
-import React, {useState} from 'react';
-import axios from "axios";
+import logo from './logo.svg'
+import './App.css'
+import Album from './components/Album'
+import React, { useState } from 'react'
+import axios from 'axios'
 
-function App() {
-  let [query, setQuery] = useState("")
-  let [albums, setAlbums] = useState({results:[]})
+function App () {
+  const [query, setQuery] = useState('')
+  const [albums, setAlbums] = useState({ results: [] })
 
-  //When form is submitted, we set the state of albums to the the queried url
+  // When form is submitted, we set the state of albums to the the queried url
   const searchAlbums = async (e) => {
-    e.preventDefault();
-    //encode uri component - encodes url sensitive characters to utf 8 encoded version of the character
+    e.preventDefault()
+    // encode uri component - encodes url sensitive characters to utf 8 encoded version of the character
     const url = `https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=album`
 
     try {
-      //pause the function and wait until the axios call is done and put the raw response in data
+      // pause the function and wait until the axios call is done and put the raw response in data
       const response = await axios.get(url)
-      //**filtering the data for I want, data I get vs data I need
+      // **filtering the data for I want, data I get vs data I need
       console.log(response.data)
       setAlbums(response.data)
-  }
-    //if there any issues getting the data, console log the error message
-    catch(error) {
-      console.error("Error fetching the data, please check the console for more details", error)
+    } catch (error) { // if there any issues getting the data, console log the error message
+      console.error('Error fetching the data, please check the console for more details', error)
     }
-    
   }
- 
-    
-  //When the query field changes, update state to be the current value
+
+  // When the query field changes, update state to be the current value
   const handleQueryChange = (e) => {
     setQuery(e.target.value)
   }
-
-  
 
   return (
     <div className="App">
@@ -63,13 +57,12 @@ function App() {
       <div className="album-list">
         {albums.results.map((album) => (
             <Album key={album.collectionId} album={album}/>
-          ))}
+        ))}
       </div>
       <ul>
-      
       </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

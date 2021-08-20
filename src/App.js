@@ -1,6 +1,7 @@
 import logo from './logo.svg'
 import './App.css'
 import Album from './components/Album'
+import Header from './components/Header'
 import React, { useState } from 'react'
 import axios from 'axios'
 
@@ -11,6 +12,9 @@ function App () {
   // When form is submitted, we set the state of albums to the the queried url
   const searchAlbums = async (e) => {
     e.preventDefault()
+    if (query === '') {
+      alert('Please enter an artist\'s name')
+    }
     // encode uri component - encodes url sensitive characters to utf 8 encoded version of the character
     const url = `https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=album`
 
@@ -32,6 +36,7 @@ function App () {
 
   return (
     <div className="App">
+      <Header></Header>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

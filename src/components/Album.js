@@ -8,10 +8,15 @@ export default function Album ({ album }) {
   }
   return (
         <div className="album">
-            <p>{album.artistName}</p>
-            <p>{album.collectionName}</p>
-            <p>{album.releaseDate}</p>
-            <p>{album.artworkUrl60 || album.artworkUrl100}</p>
+            <p>Name of artist: {album.artistName}</p>
+            <p>Album name: {album.collectionName}</p>
+            <p>Album release date: {album.releaseDate.substring(0, 4)}</p>
+            <p>Album artwork:
+                <a href={album.artworkUrl60 || album.artworkUrl100}>
+                {album.artworkUrl60 || album.artworkUrl100}
+                </a>
+            </p>
+            <br/>
         </div>
   )
 }

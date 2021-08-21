@@ -12,8 +12,9 @@ export default function Album ({ album }) {
             <p>Album name: {album.collectionName}</p>
             <p>Album release date: {album.releaseDate.substring(0, 4)}</p>
             <p>Album artwork:
-                <a href={album.artworkUrl60 || album.artworkUrl100}>
-                {album.artworkUrl60 || album.artworkUrl100}
+                <a href={album.artworkUrl100}>
+                    <br/>
+                    <img src={album.artworkUrl100}/>
                 </a>
             </p>
             <br/>

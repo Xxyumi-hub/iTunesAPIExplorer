@@ -8,6 +8,7 @@ import axios from 'axios'
 function App () {
   const [query, setQuery] = useState('')
   const [albums, setAlbums] = useState({ results: [] })
+  const [loading, setLoading] = useState(false)
 
   // When form is submitted, we set the state of albums to the the queried url
   const searchAlbums = async (e) => {
@@ -19,11 +20,12 @@ function App () {
     const url = `https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=album`
 
     try {
+      setLoading(true)
       // pause the function and wait until the axios call is done and put the raw response in data
       const response = await axios.get(url)
-      // **filtering the data for I want, data I get vs data I need
       console.log(response.data)
       setAlbums(response.data)
+      setLoading(false)
     } catch (error) { // if there any issues getting the data, console log the error message
       console.error('Error fetching the data, please check the console for more details', error)
     }
@@ -59,13 +61,7 @@ function App () {
         </label>
         <input type="submit" value="Submit" />
       </form>
-      <div className="album-list">
-        {albums.results.map((album) => (
-            <Album key={album.collectionId} album={album}/>
-        ))}
-      </div>
-      <ul>
-      </ul>
+      <Album albums={albums} loading={loading}/>
     </div>
   )
 }

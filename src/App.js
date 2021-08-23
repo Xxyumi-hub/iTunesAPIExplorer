@@ -1,7 +1,7 @@
-import logo from './logo.svg'
 import './App.css'
 import Album from './components/Album'
 import Header from './components/Header'
+import MainSection from './components/MainSection'
 import React, { useState } from 'react'
 import axios from 'axios'
 
@@ -38,28 +38,17 @@ function App () {
 
   return (
     <div className="App">
-      <Header></Header>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header title="iTunes API Explorer"/>
+      <header className="App-header"/>
+      <MainSection content='Explore the iTunes API with just one click'/>
+      <br/>
       <form onSubmit={searchAlbums}>
         <label className="label">
           Search itunes:
           <input type="text" placeholder="Enter an artist's name" value={query}
-          onChange={handleQueryChange}/>
+          onChange={handleQueryChange} className="input"/>
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="submit-button"/>
       </form>
       <Album albums={albums} loading={loading}/>
     </div>

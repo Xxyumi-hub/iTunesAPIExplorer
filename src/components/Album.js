@@ -1,3 +1,5 @@
+import '../App.css'
+import logo from '../logo.svg'
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -9,24 +11,29 @@ export default function Album ({ albums, loading }) {
   }
 
   if (loading) {
-    return <h2>Loading...</h2>
+    return (
+    <div>
+        <h2>Loading...</h2>
+        <img src={logo} className="App-logo" alt="logo" />
+    </div>
+    )
   }
   return (
-        <div className="album-list">
+    <div className="album-list">
         {albums.results.map((album) => (
-           <div key={album.collectionId} className="album">
-            <br/>
-            <p>Name of artist: {album.artistName}</p>
-            <p>Album name: {album.collectionName}</p>
-            <p>Album release date: {album.releaseDate.substring(0, 4)}</p>
-            <p>Album artwork:
+        <div key={album.collectionId} className="album">
+            <p><b>Name of artist:</b> {album.artistName}</p>
+            <p><b>Album name:</b> {album.collectionName}</p>
+            <p><b>Album release date:</b> {album.releaseDate.substring(0, 4)}</p>
+            <p><b>Album artwork:</b>
                 <a href={album.artworkUrl100}>
                     <br/>
-                    <img src={album.artworkUrl100}/>
+                    <br/>
+                    <img className="artwork-image" src={album.artworkUrl100}/>
                 </a>
             </p>
         </div>
         ))}
-      </div>
+    </div>
   )
 }

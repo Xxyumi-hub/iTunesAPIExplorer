@@ -1,13 +1,14 @@
 # What is the iTunes API Explorer
 This is an app made with React, styled with CSS, and tested with the React testing library that consumes the iTunes API and allows a user to search by artist for  albums.
 
+iTunes Search API:
+http://resources.organicfruitapps.com/documentation/itunes-store-web-service-search-api/ 
+
 Each album displays the: <br/>
 -Artist name <br/>
 -Album name <br/>
 -Year released <br/>
 -Album art<br/>
-
-You can also find this app deployed live at https://agitated-feynman-00d23b.netlify.app/ 
 
 <img src="https://github.com/Xxyumi-hub/iTunesAPIExplorer/blob/master/gif.gif"/>
 

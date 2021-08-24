@@ -13,7 +13,7 @@ Each album displays the: <br/>
 <img src="https://github.com/Xxyumi-hub/iTunesAPIExplorer/blob/master/gif.gif"/>
 
 ## Install
-To install the dependencies needed for the app, you can use: 
+After downloading the code, <code>cd</code> into the directory to install the dependencies needed for the app, you can use: 
 <code>npm install</code> in the terminal
 
 ## Run

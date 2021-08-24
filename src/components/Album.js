@@ -29,7 +29,7 @@ export default function Album ({ albums, loading }) {
                 <a href={album.artworkUrl100}>
                     <br/>
                     <br/>
-                    <img className="artwork-image" src={album.artworkUrl100}/>
+                    <img className="artwork-image" src={album.artworkUrl100} alt={album.collectionName + ' album cover'}/>
                 </a>
             </p>
         </div>

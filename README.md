@@ -1,3 +1,32 @@
+# What is the iTunes API Explorer
+This is an app made with React, styled with CSS, and tested with the React testing library that consumes the iTunes API and allows a user to search by artist for  albums.
+
+Each album displays the:
+-Artist name
+-Album name
+-Year released
+-Album art
+
+You can also find this app deployed live at https://agitated-feynman-00d23b.netlify.app/ 
+
+<img src='./gif.gif/>
+
+I organized the additional components outside of the main index.js and app.js inside a components folder. Inside this components folder is also a folder that holds some tests that you can run by typing:
+<code>npm run test</code> in the terminal
+
+## Install
+To install and run the app, you can use Npm:
+<code>npm install</code> in the terminal
+
+## Run
+After installing the dependencies, you can run:
+<code>npm start</code> in the terminal to start the app
+
+After the app is running, a user can type in an artist's name in the input field to search for an artist's albums
+
+## Stretch Goal
+I would like to add a pagination component in the future so the data doesn't all display at once to the user
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

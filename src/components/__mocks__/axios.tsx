@@ -9,7 +9,7 @@ const mockResponse = {
   }
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  // eslint-disable-next-line no-undef
   get: jest.fn().mockResolvedValue(mockResponse)
 }

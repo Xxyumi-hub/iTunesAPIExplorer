@@ -11,7 +11,7 @@ function App () {
   const [loading, setLoading] = useState(false)
 
   // When form is submitted, we set the state of albums to the the queried url
-  const searchAlbums = async (e) => {
+  const searchAlbums = async (e:React.FormEvent) => {
     e.preventDefault()
     if (query === '') {
       alert('Please enter an artist\'s name')
@@ -32,14 +32,13 @@ function App () {
   }
 
   // When the query field changes, update state to be the current value
-  const handleQueryChange = (e) => {
-    setQuery(e.target.value)
+  const handleQueryChange = (e:React.FormEvent<HTMLInputElement>) => {
+    setQuery(e.currentTarget.value)
   }
 
   return (
     <div className="App">
       <Header title="iTunes API Explorer"/>
-      <header className="App-header"/>
       <MainSection content='Explore the iTunes API with just one click'/>
       <br/>
       <form onSubmit={searchAlbums}>

@@ -1,7 +1,6 @@
-/* eslint-disable no-undef */
 import { render, screen } from '@testing-library/react'
 import MainSection from '../MainSection'
-import React from 'react'
+
 
 describe('testing Main section component', () => {
   test('renders correct Main section content', () => {
